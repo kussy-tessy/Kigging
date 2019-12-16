@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  actor: one
+  kig_date: 2019-12-13
+  remarks: MyText
+
+two:
+  actor: two
+  kig_date: 2019-12-13
+  remarks: MyText
