@@ -17,7 +17,10 @@ Person.create!(
   ]
 )
 
-Person.where(name: 'くっしー').kigurumis.create!(
+kussy = Person.where(name: 'くっしー').first
+shallen = Person.where(name: 'しゃれんきゅん').first
+
+kussy.kigurumis.create!(
   [
     {
       name: '髏々宮カルタ'
@@ -28,7 +31,7 @@ Person.where(name: 'くっしー').kigurumis.create!(
   ]
 )
 
-Person.where(name: 'しゃれんきゅん').kigurumis.create!(
+shallen.kigurumis.create!(
   [
     {
       name: '蓬莱山輝夜'
@@ -62,3 +65,13 @@ Person.where(name: 'しゃれんきゅん').kigurumis.create!(
     }
   ]
 )
+
+20.times do |i|
+  kigurumi = Kigurumi.all.sample
+  kussy.wear(kigurumi, rand(1..30).days.ago)
+end
+
+20.times do |i|
+  kigurumi = Kigurumi.all.sample
+  shallen.wear(kigurumi, rand(1..30).days.ago)
+end
