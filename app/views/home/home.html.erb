@@ -1,0 +1,28 @@
+<div>
+  <% if flash.any? %>
+    <%= flash.first[1] %>
+  <% end %>
+  <%= form_with model: Kigging.new, local: true do |f| %>
+    <div>
+      <%= f.label :actor_id, '着た人' %>
+      <%= f.select :actor_id, Person.all.map{|p| [p.name, p.id]} %>
+    </div>
+    <div>
+      <%= f.label :kigurumi_id, '着た着ぐるみ' %>
+      <%= f.select :kigurumi_id, Kigurumi.all.map{|k| [k.name, k.id]} %>
+    </div>
+    <div>
+      <%= f.label :kig_date, '着た日' %>
+      <%= f.date_field :kig_date, value: Date.today.strftime('%Y-%m-%d') %>
+    </div>
+    <div>
+      <%= f.submit '送信' %>
+    </div>
+  <% end %>
+  <div>
+    <% @kigurumis.each do |kigurumi| %>
+      <%= kigurumi.name %>
+      <%= "#{kigurumi.latest.how_many_days_ago.to_s}日前" %><br>
+    <% end %>
+  </div>
+</div>
